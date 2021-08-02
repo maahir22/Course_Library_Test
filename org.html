@@ -1,0 +1,53 @@
+<html>
+<style>
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+body, html {
+  height: 100%;
+}
+
+</style>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Lists</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<center><h1>
+Courses List
+</h1></center>
+<center id="boss"></center>
+</body>
+<script>
+async function getans(){
+	let response = await fetch('https://s3-ap-southeast-1.amazonaws.com/he-public-data/courses26269ff.json');
+  let data = await response.json();
+  for(var i=0;i<data.length;i++){
+   document.getElementById("boss").innerHTML += "<div class=\"card\">" + "<center><img src=" + data[i].thumbnailURL + " " + "style=width:50%></center>" + "<div class=\"container\">"+"<h4><b>"+data[i].title+"</b></h4>"+"<br><h4><b>Cost : Rs." + data[i].price + "</b></h4></br>" +"<button onclick = fake()><h4><b>Buy Now</h4></b></button><br></br>" +"</div></div> ";
+  document.getElementById("boss").innerHTML += "<br>" + "</br>";
+}
+}
+function fake(){
+	  window.location = "pmg.html";
+   return false;
+}
+getans();
+</script>
+</html>

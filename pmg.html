@@ -1,0 +1,55 @@
+<html>
+<title>RazorPay Payment Gateway</title>
+<style>
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<center><b><h1>
+Payment Page</h1></b></center>
+<br></br>
+</head>
+<body>
+<center>
+<form>
+  <label for="ccno">Credit/Debit Card Number</label><br>
+  <input type="text" id="ccno" name="ccno"><br>
+  <label for="cvv">CVV</label><br>
+  <input type="text" id="cvv" name="cvv">
+  <br></br>
+  <center><input type="submit" onclick=mock() value="Submit"></center></center>
+ 
+</form>
+</body>
+<script>
+  function mock(){
+	var otp = prompt("Please enter OTP recieved on your mobile");
+	if(otp == 123456){ 
+		alert("Payment Successful");
+		window.location = "org.html";
+		
+	}
+	else { 
+		alert("Wrong OTP Entered");
+		return false;
+	 }
+  }
+</script>
+</html>
